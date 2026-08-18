@@ -1,0 +1,11 @@
+dc= {
+
+"name":"Anu",
+"Age":23,
+"Ph_no":777
+
+}
+
+print(dc)
+
+
