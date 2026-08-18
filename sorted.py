@@ -1,0 +1,16 @@
+print("Largest of four numbers")
+def largest(a, b, c, d):
+	numbers = sorted([a, b, c, d], reverse=True)
+	print(f"First largest: {numbers[0]}")
+	print(f"Second largest: {numbers[1]}")
+	print(f"Third largest: {numbers[2]}")
+	print(f"fourth largest: {numbers[3]}")
+largest(1, 32, 259, 5000)
+print("Smallest of four numbers")
+def Smallest(a, b, c, d):
+	numbers = sorted([a, b, c, d], reverse=False)
+	print(f"First smallest: {numbers[0]}")
+	print(f"Second smallest: {numbers[1]}")
+	print(f"Third smallest: {numbers[2]}")
+	print(f"fourth smallest: {numbers[3]}")
+Smallest(1, 32, 259, 5000)
