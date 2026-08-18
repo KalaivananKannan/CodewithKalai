@@ -18,7 +18,7 @@ class Bank:
             print("Login Success")
             return account
         except KeyError:
-            print("Invalid Account Number")
+            print("Invalid")
 
 class Account:
     def __init__(self, acc_no, name, age, location):
