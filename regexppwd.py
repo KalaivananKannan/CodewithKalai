@@ -9,12 +9,13 @@ while True:
         username=input("Enter the username to register: ")
         password=input("Enter the password to register: ")
         
-        if (8<=len(password)<=15 and
-            len(re.findall("[a-z]", password)) > 0 and
-            len(re.findall("[A-Z]", password)) > 0 and
-            len(re.findall("[0-9]", password)) > 0 and
-            len(re.findall("[^a-zA-Z0-9]", password)) > 0):
+        # if (8<=len(password)<=15 and
+        #     len(re.findall("[a-z]", password)) > 0 and
+        #     len(re.findall("[A-Z]", password)) > 0 and
+        #     len(re.findall("[0-9]", password)) > 0 and
+        #     len(re.findall("[^a-zA-Z0-9]", password)) > 0):
 
+        if re.search(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,15}$', password):
             print("Password registered")
         else:
             print("Invalid password. Must be 8 to 15 characters include 1number, 1lowercase, 1uppercase, 1special character.")
