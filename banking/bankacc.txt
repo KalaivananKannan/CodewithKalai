@@ -1,0 +1,7 @@
+3810000100|KalaiKannan|123@Kalai|Kalai|19|Radha Nagar|1500.0
+3810000101|RamGovind|123@Govind|Ram|18|Madha Nagar|100.0
+3810000102|RajaRam|123@Raja|Raja|20|Raja Nagar|1400.0
+3810000103|RjVignesh|123@Vignesh|Vignesh|29|Vicky Street|1100.0
+3810000104|RaghavKumar|123@Raghav|Raghav|23|Kumar Street|4800.0
+3810000105|AtulMano|123@Atul|Atul|25|Mano Nagar|2670.0
+3810000106|YamiJanu|123@Janu|Yamini|29|Janaki Nagar|7300.0
