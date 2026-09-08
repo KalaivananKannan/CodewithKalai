@@ -48,3 +48,15 @@ for i in movie:
     print(i.strip())
 
 movie.close()
+
+
+file = open("login.txt", "w")
+log = file.write("Dora")
+file.write("\nIPCS@123")
+file.close()
+
+
+file = open("login.txt", "r")
+log = file.read()
+print(log)
+file.close()

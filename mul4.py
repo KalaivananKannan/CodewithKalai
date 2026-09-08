@@ -6,8 +6,6 @@ student=[{"name":"anu","age":"20","gender":"male","city":"karur"},
 	{"name":"tanu","age":"19","gender":"female","city":"kannur"}]
 
 print(student)
-
-
 #print(len(student))
 
 def stuwhileloop():

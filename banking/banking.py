@@ -59,7 +59,6 @@ class Bank:
         self.cursor=self.conn.cursor()
         self.load_accounts()
       
-
     def save_accounts(self):
         with open(self.filename, "w") as f:
             for acc in self.accounts:
@@ -74,29 +73,23 @@ class Bank:
             self.conn.commit()
 
     def load_accounts(self):
-        try:
-            with open(self.filename, "r") as f:
-                for line in f:
-                    acc_no, username, password, name, age, location, balance=line.strip().split("|")
-                    acc={
-                        "acc_no":int(acc_no), "username":username,
-                        "password":password, "name":name, "age":int(age),
-                        "location":location, "balance":float(balance),
-                        "transactions":[]
-                    }
-                    self.accounts.append(acc)
-                if self.accounts:
-                    self.next_accno=self.accounts[-1]["acc_no"]+1
-        except FileNotFoundError:
-            pass
-
+        self.accounts=[]
+        self.cursor.execute("SELECT acc_no, username, password, name, age, location, balance FROM Accounts")
+        rows = self.cursor.fetchall()
+        for row in rows:
+            acc = {
+                "acc_no":row[0],"username":row[1],"password":row[2],"name":row[3],"age":row[4],"location":row[5],"balance":row[6],
+                "transactions": []
+            }
+            self.accounts.append(acc)
+        if self.accounts:
+            self.next_accno = self.accounts[-1]["acc_no"] + 1
+        self.save_accounts()
+       
     def register(self, username, password, name, age, location):
         acc={
             "acc_no":self.next_accno,
-            "username": username, "password": password,
-            "name":name, "age": age, "location": location,
-            "balance":0,
-            "transactions":[]
+            "username":username,"password":password,"name":name,"age":age,"location":location,"balance":0,"transactions":[]
         }
         self.accounts.append(acc)        
         print(f"\nAccount created successfully.\nYour Account Number is: {self.next_accno}\n")
@@ -141,7 +134,6 @@ class Bank:
             if acc_no in self.logged_in_accounts:
                 return target(self, acc_no, *args, **kwargs)
             else:
-                print("Invalid account. Please login first.")
                 return None
         return check_login
 
@@ -181,6 +173,13 @@ class Bank:
         try:
             sender=self.find_account(sender_acc)    
             receiver=self.find_account(receiver_acc)
+            if sender is None:
+                print("Invalid sender account")
+                return
+            if receiver is None:
+                print("Invalid receiver account")
+                return
+
             if amount<=sender["balance"]:
                 sender["balance"]=sender["balance"] - amount
                 receiver["balance"]=receiver["balance"] + amount
@@ -197,7 +196,7 @@ class Bank:
             else:
                 print("Insufficient Balance")
         except Exception as e:
-            print("Error", e)
+            print("Error:", e)
 
     def total_balance(self, acc_no):
         acc=self.find_account(acc_no)

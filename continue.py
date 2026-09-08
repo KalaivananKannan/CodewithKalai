@@ -1,8 +1,8 @@
 try:
 	i=0
 	j=int(input("Enter the number from 0 to 20 to skip: "))
-	while i<=20:
-		
+
+	while i<=20:	
 		if i==j:
 			i=i+1
 			continue

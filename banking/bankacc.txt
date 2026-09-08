@@ -4,4 +4,5 @@
 3810000103|RjVignesh|123@Vignesh|Vignesh|29|Vicky Street|1100.0
 3810000104|RaghavKumar|123@Raghav|Raghav|23|Kumar Street|4800.0
 3810000105|AtulMano|123@Atul|Atul|25|Mano Nagar|2670.0
-3810000106|YamiJanu|123@Janu|Yamini|29|Janaki Nagar|7300.0
+3810000106|YamiJanu|123@Janu|Yamini|29|Janaki Nagar|7423.0
+3810000107|ThomasJaya|123@Jaya|Thomas|31|Umar Nagar|3877.0
